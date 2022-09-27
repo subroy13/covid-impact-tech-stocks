@@ -1,0 +1,61 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+% List of Latex packages to use
+\usepackage[margin = 1in]{geometry}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{graphicx,subcaption}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+
+\begin{document}
+\noindent \textbf{\color{purple}{Solving the Simultaneous Equations System:}}
+
+\noindent We have the following two structural equations:
+\color{red}{
+\begin{align*}
+    SP_{G} & =\alpha_{0}+\alpha_{1}SP_{M}+\alpha_{2}C_{new}+\alpha_{3}PR_{Z}+\alpha_{4}PR_{S}+\alpha_{5}PR_{G}+\epsilon_{1} \label{eq:1} \tag{1} \\
+    SP_{M} & =\beta_{0}+\beta_{1}SP_{G}+\beta_{2}C_{new}+\beta_{3}PR_{Z}+\beta_{4}PR_{S}+\beta_{5}PR_{M}+\epsilon_{2} \label{eq:2} \tag{2}
+\end{align*}}\color{black}{}
+Putting \eqref{eq:2} in \eqref{eq:1}, we obtain
+\begin{align*}
+    SP_{G} = & \left[\alpha_{0}+\alpha_{1}\beta_{0}\right]+\left[\alpha_{1}\beta_{1}\right]SP_{G}+\left[\alpha_{2}+\alpha_{1}\beta_{2}\right]C_{new}+\left[\alpha_{3}+\alpha_{1}\beta_{3}\right]PR_{Z}+\\
+    & \left[\alpha_{4}+\alpha_{1}\beta_{4}\right]PR_{S}  +\alpha_{5}PR_{G}+\left[\alpha_{1}\beta_{5}\right]PR_{M}+\left[\epsilon_{1}+\alpha_{1}\epsilon_{2}\right]
+\end{align*}
+This gives
+\begin{align*}
+    SP_{G} = & \left[\dfrac{\alpha_{0}+\alpha_{1}\beta_{0}}{1-\alpha_{1}\beta_{1}}\right]+\left[\dfrac{\alpha_{1}\beta_{5}}{1-\alpha_{1}\beta_{1}}\right]PR_{M}+\left[\dfrac{\alpha_{2}+\alpha_{1}\beta_{2}}{1-\alpha_{1}\beta_{1}}\right]C_{new}+\\
+    & \left[\dfrac{\alpha_{3}+\alpha_{1}\beta_{3}}{1-\alpha_{1}\beta_{1}}\right]PR_{Z}+\left[\dfrac{\alpha_{4}+\alpha_{1}\beta_{4}}{1-\alpha_{1}\beta_{1}}\right]PR_{S}  +\left[\dfrac{\alpha_{5}}{1-\alpha_{1}\beta_{1}}\right]PR_{G}+\left[\dfrac{\epsilon_{1}+\alpha_{1}\epsilon_{2}}{1-\alpha_{1}\beta_{1}}\right] \\
+    = & G_{0}+G_{1}PR_{M}+G_{2}C_{new}+G_{3}PR_{Z}+G_{4}PR_{S}+G_{5}PR_{G}+\eta_{1}
+\end{align*}
+Similarly, putting \eqref{eq:1} in \eqref{eq:2}, we obtain
+\begin{align*}
+    SP_{M} = & \left[\dfrac{\beta_{0}+\beta_{1}\alpha_{0}}{1-\alpha_{1}\beta_{1}}\right]+\left[\dfrac{\beta_{1}\alpha_{5}}{1-\alpha_{1}\beta_{1}}\right]PR_{G}+\left[\dfrac{\beta_{2}+\beta_{1}\alpha_{2}}{1-\alpha_{1}\beta_{1}}\right]C_{new}+\\
+    & \left[\dfrac{\beta_{3}+\beta_{1}\alpha_{3}}{1-\alpha_{1}\beta_{1}}\right]PR_{Z}+ \left[\dfrac{\beta_{4}+\beta_{1}\alpha_{4}}{1-\alpha_{1}\beta_{1}}\right]PR_{S}  +\left[\dfrac{\beta_{5}}{1-\alpha_{1}\beta_{1}}\right]PR_{M}+\left[\dfrac{\epsilon_{2}+\beta_{1}\epsilon_{1}}{1-\alpha_{1}\beta_{1}}\right] \\
+    = & M_{0}+M_{1}PR_{G}+M_{2}C_{new}+M_{3}PR_{Z}+M_{4}PR_{S}+M_{5}PR_{M}+\eta_{2}
+\end{align*}
+Therefore, the two reduced form equations are given by
+\color{red}{
+\begin{align*}
+    SP_{G} = & G_{0}+G_{1}PR_{M}+G_{2}C_{new}+G_{3}PR_{Z}+G_{4}PR_{S}+G_{5}PR_{G}+\eta_{1} \label{eq:3} \tag{3}\\
+    SP_{M} = & M_{0}+M_{1}PR_{G}+M_{2}C_{new}+M_{3}PR_{Z}+M_{4}PR_{S}+M_{5}PR_{M}+\eta_{2} \label{eq:4} \tag{4}
+\end{align*}}
+\color{black}{There} are $12$ structural parameters in \eqref{eq:1} and \eqref{eq:2}. Also, we have $14$ reduced form parameters in \eqref{eq:3} and \eqref{eq:4}. Thus, the system is \textit{exactly identified} and we can get back the estimates of structural parameters from the estimates of reduced form parameters. 
+
+The structural form parameters can be written as functions of the reduced form parameters in the following way:
+
+\begin{align*}
+    & \alpha_{1}=\dfrac{G_{1}}{M_{5}}, \beta_{1}=\dfrac{M_{1}}{G_{5}}\\
+    & \alpha_{5}=(1-\alpha_{1}\beta_{1})G_{5}, \beta_{5}=(1-\alpha_{1}\beta_{1})M_{5}\\
+    & \alpha_{0}=G_{0}-\alpha_{1}M_{0}, \beta_{0}=M_{0}-\beta_{1}G_{0}\\
+    & \alpha_{2}=G_{2}-\alpha_{1}M_{2}, \beta_{2}=M_{2}-\beta_{1}G_{2}\\
+    & \alpha_{3}=G_{3}-\alpha_{1}M_{3}, \beta_{3}=M_{3}-\beta_{1}G_{3}\\
+    & \alpha_{4}=G_{4}-\alpha_{1}M_{4}, \beta_{4}=M_{4}-\beta_{1}G_{4}
+\end{align*}
+
+
+\end{document}
